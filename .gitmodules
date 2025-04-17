@@ -1,0 +1,12 @@
+[submodule "src/External/SDL"]
+	path = src/External/SDL
+	url = https://github.com/libsdl-org/SDL/
+[submodule "src/External/nativefiledialog-extended"]
+	path = src/External/nativefiledialog-extended
+	url = https://github.com/btzy/nativefiledialog-extended
+[submodule "src/External/imgui"]
+	path = src/External/imgui
+	url = https://github.com/ocornut/imgui
+[submodule "src/External/SDL_image"]
+	path = src/External/SDL_image
+	url = https://github.com/libsdl-org/SDL_image
