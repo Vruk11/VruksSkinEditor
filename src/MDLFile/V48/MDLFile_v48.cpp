@@ -74,7 +74,10 @@ bool MDLFile_V48::ReadFromBuffer(const char* buffer, int length)
 	//
 	// SECTION: KEYVALUES
 	//
-	KeyValues.assign(FullFileData + V48HeaderData->KeyValuesOffset);
+	if(V48HeaderData->KeyValuesSize > 0)
+	{
+		KeyValues.assign(FullFileData + V48HeaderData->KeyValuesOffset);
+	}
 
 	return true;
 }
