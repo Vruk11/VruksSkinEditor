@@ -9,6 +9,8 @@ if (POLICY CMP0141)
   set(CMAKE_MSVC_DEBUG_INFORMATION_FORMAT "$<IF:$<AND:$<C_COMPILER_ID:MSVC>,$<CXX_COMPILER_ID:MSVC>>,$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>,$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>>")
 endif()
 
+option(VSE_USE_GTK_FILE_PICKER	"Disable using xdg-deskop-portals on linux and use GTK's file picker instead"	OFF)
+
 project ("VruksSkinEditor")
 
 # set the output directory for built objects.
@@ -104,6 +106,13 @@ set(SDLIMAGE_WEBP OFF)
 set(SDLIMAGE_XCF OFF)
 set(SDLIMAGE_XPM OFF)
 set(SDLIMAGE_XV OFF)
+
+if(VSE_USE_GTK_FILE_PICKER)
+	set(NFD_PORTAL OFF CACHE BOOL "Use GTK's file picker" FORCE)
+else()
+	set(NFD_PORTAL ON CACHE BOOL "Use XDG-DESKTOP_PORTAL's org.freedesktop.impl.portal.FileChooser portal for file picking" FORCE)
+endif()
+
 
 add_subdirectory(src/External/SDL)
 add_subdirectory(src/External/SDL_image)
